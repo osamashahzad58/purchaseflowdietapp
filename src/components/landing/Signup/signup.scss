@@ -1,110 +1,107 @@
 .signupmain {
-    background-image: url('../../../Assests/bgimg.png');
-    /* Use relative path */
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
+  background-image: url("../../../Assests/bgimg.png");
+  /* Use relative path */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
 
-    .parentsignup {
-        display: flex;
-        width: 100%;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        padding-top: 145px;
+  .parentsignup {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 145px;
 
-        .imglogo {
-            margin-bottom: 14px;
-        }
-
-        .mainprnttabsdiv {
-            max-width: 556px;
-            width: 100%;
-            padding: 20px 26px;
-            border-radius: 20px;
-            border: 1px solid var(--Stroke, #EAEBED);
-            background: var(--Bcakground-color, #F9F9F9);
-
-            .nav {
-                border: none;
-                border-radius: 15px;
-                border: 1px solid #F0F6FF;
-                background: var(--White, #FFF);
-                margin-bottom: 25px !important;
-
-                .nav-item {
-                    width: 50%;
-
-                    button {
-                        width: 100%;
-                        padding: 15px 0px;
-                        border-radius: 15px;
-                        color: #949494;
-                        text-align: center;
-                        font-size: 14px;
-                        font-style: normal;
-                        font-weight: 500;
-                        line-height: 130%;
-                        border: none;
-                        background-color: transparent;
-
-
-                    }
-
-                }
-            }
-
-            .tab-content {
-                max-width: 556px;
-                width: 100%;
-
-                .inputsignup {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    flex-direction: column;
-                    gap: 20px;
-
-                    input {
-                        padding: 20px;
-                        border-radius: 15px;
-                        border: 1px solid #EAEBED;
-                        width: 100%;
-                        color: #CACACA;
-                        background: #F9F9F9;
-                        font-size: 16px;
-                       
-                        font-style: normal;
-                        font-weight: 400;
-                        line-height: normal;
-                    }
-
-                    .signinbtn {
-                        width: 100%;
-                        padding: 15px 0px;
-                        border-radius: 15px;
-                        background: var(--Primary-Green, #129F07);
-                        border: none;
-                        color: var(--Color, #FFF);
-                        font-size: 18px;
-                        font-style: normal;
-                        font-weight: 500;
-                        line-height: 100%;
-                        margin-top: 5px;
-                    }
-                }
-            }
-        }
+    .imglogo {
+      margin-bottom: 14px;
     }
+
+    .mainprnttabsdiv {
+      max-width: 556px;
+      width: 100%;
+      padding: 20px 26px;
+      border-radius: 20px;
+      border: 1px solid var(--Stroke, #eaebed);
+      background: var(--Bcakground-color, #f9f9f9);
+
+      .nav {
+        border: none;
+        border-radius: 15px;
+        border: 1px solid #f0f6ff;
+        background: var(--White, #fff);
+        margin-bottom: 25px !important;
+
+        .nav-item {
+          width: 50%;
+
+          button {
+            width: 100%;
+            padding: 15px 0px;
+            border-radius: 15px;
+            color: #949494;
+            text-align: center;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 130%;
+            border: none;
+            background-color: transparent;
+          }
+        }
+      }
+
+      .tab-content {
+        max-width: 556px;
+        width: 100%;
+
+        .inputsignup {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          gap: 20px;
+
+          input {
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid #eaebed;
+            width: 100%;
+            // color: #CACACA;
+            color: #000;
+            background: #f9f9f9;
+            font-size: 16px;
+
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+          }
+
+          .signinbtn {
+            width: 100%;
+            padding: 15px 0px;
+            border-radius: 15px;
+            background: var(--Primary-Green, #129f07);
+            border: none;
+            color: var(--Color, #fff);
+
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 100%;
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+  }
 }
 
 .nav-tabs .nav-item.show .nav-link,
 .nav-tabs .nav-link.active {
-    background-color: #129F07 !important;
-    transition: 0.3s;
-    color: #FFF !important;
-    border: none !important;
-
-
+  background-color: #129f07 !important;
+  transition: 0.3s;
+  color: #fff !important;
+  border: none !important;
 }
