@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
+import Dropdown from 'react-bootstrap/Dropdown';
 import {
   BrowserRouter as Router,
   Routes,
@@ -190,13 +191,13 @@ const Signup = () => {
                     value={signupEmail}
                     onChange={(e) => setSignupEmail(e.target.value)}
                   />
-
+                  {/* 
                   <input
                     type="text"
                     placeholder="Gender"
                     value={gender}
                     onChange={(e) => setGender(e.target.value)}
-                  />
+                  /> */}
 
                   <input
                     type="password"
@@ -205,13 +206,31 @@ const Signup = () => {
                     onChange={(e) => setSignupPassword(e.target.value)}
                   />
 
-                  <button
+                  <input type="password" placeholder="Confirm Password" />
+
+                  <Dropdown>
+                    <Dropdown.Toggle variant="success" id="dropdown-basic">
+                      Gender
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+                      <Dropdown.Item className="firstygender" href="#/action-1">Male</Dropdown.Item>
+                      <Dropdown.Item href="#/action-2">Female</Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+
+
+                  {/* <button
                     className="signinbtn"
                     onClick={handleSignup}
                     disabled={loading}
                   >
                     {loading ? "Creating Account..." : "Sign Up"}
-                  </button>
+                  </button> */}
+                  <Link className="anchorsignup" to="/authuntication">
+                    <button className="signinbtn">Signup</button>
+                  </Link>
+
                 </div>
               </Tab>
             </Tabs>
