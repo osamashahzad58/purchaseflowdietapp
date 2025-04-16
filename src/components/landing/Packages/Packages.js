@@ -247,7 +247,7 @@ const Packages = () => {
 
                   <button
                     className="packagesstartbtn"
-                    onClick={() => handleStartNow("Standard")}
+                    onClick={() => handleStartNow("Pro")}
                     disabled={loading}
                   >
                     {" "}
@@ -348,7 +348,7 @@ const Packages = () => {
 
                   <button
                     className="packagesstartbtn"
-                    onClick={() => handleStartNow("Pro")}
+                    onClick={() => handleStartNow("Vip")}
                     disabled={loading}
                   >
                     {" "}
