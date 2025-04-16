@@ -68,14 +68,34 @@
             border-radius: 15px;
             border: 1px solid #eaebed;
             width: 100%;
-            // color: #CACACA;
-            color: #000;
             background: #f9f9f9;
             font-size: 16px;
-
+            color: #282828;
             font-style: normal;
             font-weight: 400;
             line-height: normal;
+            &::placeholder{
+              color: #CACACA;
+            }
+          }
+
+          .anchorsignup {
+            width: 100%;
+
+            .signinbtn {
+              width: 100%;
+              padding: 15px 0px;
+              border-radius: 15px;
+              background: var(--Primary-Green, #129f07);
+              border: none;
+              color: var(--Color, #fff);
+
+              font-size: 18px;
+              font-style: normal;
+              font-weight: 500;
+              line-height: 100%;
+              margin-top: 5px;
+            }
           }
 
           .signinbtn {
@@ -91,6 +111,60 @@
             font-weight: 500;
             line-height: 100%;
             margin-top: 5px;
+          }
+
+          .dropdown {
+            width: 100%;
+            
+
+            //             border-radius: 15px;
+            // border: 1px solid var(--Stroke, #EAEBED);
+            .dropdown-toggle {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              width: 100%;
+              padding: 20px;
+              border-radius: 15px;
+              border: 1px solid var(--Stroke, #EAEBED);
+              background-color: transparent;
+              color: #CACACA;
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+              &:active{
+                border-color: #EAEBED;
+                box-shadow: none !important;
+              }
+              &:focus{
+                box-shadow: none;
+              }
+
+            }
+
+            .dropdown-menu {
+              margin-top: 8px;
+              width: 100%;
+              padding: 18px;
+              border-radius: 5px;
+              border: 1px solid var(--Stroke, #EAEBED);
+              background: #FAFAFB;
+
+              .firstygender {
+                padding-bottom: 10px;
+                border-bottom: 1px solid #EAEBED;
+              }
+
+              .dropdown-item {
+                color: #000;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+
+              }
+            }
           }
         }
       }
