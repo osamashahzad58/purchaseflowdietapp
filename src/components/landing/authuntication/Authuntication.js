@@ -3,6 +3,8 @@ import "./authuntication.scss";
 import { useRecoilValue } from "recoil";
 import { signupEmailState } from "../atoms/context";
 import Environment from "../../../utils/Enviroment";
+import { ToastContainer, toast } from "react-toastify";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const Authuntication = () => {
   const signupEmail = useRecoilValue(signupEmailState);
@@ -10,6 +12,8 @@ const Authuntication = () => {
   const [error, setError] = useState(null);
   const [otp, setOtp] = useState(["", "", "", "", "", ""]); // Array to store each digit
   const inputRefs = useRef([]);
+
+  const history = useHistory();
 
   const handleChange = (index, value) => {
     // Only allow digits (0-9)
@@ -45,7 +49,7 @@ const Authuntication = () => {
       setIsVerifying(true);
       setError(null);
 
-      const response = await fetch(`${Environment}verify/otp`, {
+      const response = await fetch(`${Environment.API_URL}client/verify/otp`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -56,15 +60,27 @@ const Authuntication = () => {
         }),
       });
 
-      const data = await response.json();
+      if (response.ok) {
+        const data = await response.json();
+        localStorage?.setItem("token", data?.token);
 
-      if (!response.ok) {
-        throw new Error(data.message || "OTP verification failed");
+        toast.success("Authenticated!", {
+          position: "top-right",
+          autoClose: 3000,
+        });
+        // Navigate to dashboard on successful login
+        history.push("/packages");
+      } else {
+        const errorData = await response.json();
+        console.log("Error Data", errorData.msg);
+        toast.error(
+          errorData.msg || "Login failed! Please check your credentials.",
+          {
+            position: "top-right",
+            autoClose: 3000,
+          }
+        );
       }
-
-      // Handle successful verification
-      console.log("OTP verified successfully", data);
-      // You might want to redirect or update state here
     } catch (err) {
       setError(err.message || "An error occurred during verification");
       console.error("Verification error:", err);
