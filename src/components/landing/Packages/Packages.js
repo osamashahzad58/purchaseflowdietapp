@@ -58,10 +58,10 @@ const Packages = () => {
             <div className="cardone">
               <div className="headercardone">
                 <div className="headerstylecardone">
-                  <h6>STARTER</h6>
+                  <h6>STANDARD</h6>
                   <h3>
                     {" "}
-                    <sub className="firstprice">$</sub>19{" "}
+                    <sub className="firstprice">$</sub>20{" "}
                     <sub className="secpricesub">/ month</sub>
                   </h3>
                   <p>billed monthly</p>
@@ -142,11 +142,11 @@ const Packages = () => {
                 </div>
                 <div className="btncardonemain">
                   <h4>
-                    3.995$<span>/3.995$</span>
+                    20$<span>/20$</span>
                   </h4>
                   <button
                     className="packagesstartbtn"
-                    onClick={() => handleStartNow("Starter")}
+                    onClick={() => handleStartNow("Standard")}
                     disabled={loading}
                   >
                     {" "}
@@ -158,10 +158,10 @@ const Packages = () => {
             <div className="cardone">
               <div className="headercardone">
                 <div className="headerstylecardone">
-                  <h6>Standard</h6>
+                  <h6>PREMIUM</h6>
                   <h3>
                     {" "}
-                    <sub className="firstprice">$</sub>19{" "}
+                    <sub className="firstprice">$</sub>30{" "}
                     <sub className="secpricesub">/month</sub>
                   </h3>
                   <p>billed monthly</p>
@@ -242,12 +242,12 @@ const Packages = () => {
                 </div>
                 <div className="btncardonemain">
                   <h4>
-                    3.995$<span>/3.995$</span>
+                    30$<span>/30$</span>
                   </h4>
 
                   <button
                     className="packagesstartbtn"
-                    onClick={() => handleStartNow("Pro")}
+                    onClick={() => handleStartNow("Premium")}
                     disabled={loading}
                   >
                     {" "}
@@ -259,11 +259,11 @@ const Packages = () => {
             <div className="cardone">
               <div className="headercardone">
                 <div className="headerstylecardone">
-                  <h6>Vip</h6>
+                  <h6>PREMIUM</h6>
                   <h3>
                     {" "}
-                    <sub className="firstprice">$</sub>19{" "}
-                    <sub className="secpricesub">/ month</sub>
+                    <sub className="firstprice">$</sub>30{" "}
+                    <sub className="secpricesub">/month</sub>
                   </h3>
                   <p>billed monthly</p>
                 </div>
@@ -343,12 +343,12 @@ const Packages = () => {
                 </div>
                 <div className="btncardonemain">
                   <h4>
-                    3.995$<span>/3.995$</span>
+                    30$<span>/30$</span>
                   </h4>
 
                   <button
                     className="packagesstartbtn"
-                    onClick={() => handleStartNow("Vip")}
+                    onClick={() => handleStartNow("Premium")}
                     disabled={loading}
                   >
                     {" "}

@@ -49,7 +49,6 @@ const Signup = () => {
       });
       if (response.ok) {
         const data = await response.json();
-        console.log("Login successful", data?.token);
         localStorage?.setItem("token", data?.token);
 
         toast.success("Login successful!", {
@@ -60,8 +59,9 @@ const Signup = () => {
         history.push("/packages");
       } else {
         const errorData = await response.json();
+        console.log("Error Data", errorData.msg);
         toast.error(
-          errorData || "Login failed! Please check your credentials.",
+          errorData.msg || "Login failed! Please check your credentials.",
           {
             position: "top-right",
             autoClose: 3000,
@@ -82,6 +82,44 @@ const Signup = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
     setLoading(true);
+
+    // Field validation
+    if (
+      !signupEmail ||
+      !signupPassword ||
+      !confirmPassword ||
+      !fullName ||
+      !gender
+    ) {
+      if (!signupEmail) {
+        toast.error("Email is required", {
+          position: "top-right",
+          autoClose: 3000,
+        });
+      } else if (!signupPassword) {
+        toast.error("Password is required", {
+          position: "top-right",
+          autoClose: 3000,
+        });
+      } else if (!confirmPassword) {
+        toast.error("Confirm Password is required", {
+          position: "top-right",
+          autoClose: 3000,
+        });
+      } else if (!fullName) {
+        toast.error("Full Name is required", {
+          position: "top-right",
+          autoClose: 3000,
+        });
+      } else if (!gender) {
+        toast.error("Gender is required", {
+          position: "top-right",
+          autoClose: 3000,
+        });
+      }
+      setLoading(false);
+      return;
+    }
 
     // Basic validation
     if (signupPassword !== confirmPassword) {
@@ -109,7 +147,7 @@ const Signup = () => {
 
       if (response.ok) {
         const data = await response.json();
-        toast.success("Signup successful! Please login.", {
+        toast.success("Signup successful! Please Verify.", {
           position: "top-right",
           autoClose: 3000,
         });
@@ -118,7 +156,8 @@ const Signup = () => {
         history.push("/authuntication");
       } else {
         const errorData = await response.json();
-        toast.error(errorData.message || "Signup failed! Please try again.", {
+        console.log(errorData);
+        toast.error(errorData.msg || "Signup failed! Please try again.", {
           position: "top-right",
           autoClose: 3000,
         });
