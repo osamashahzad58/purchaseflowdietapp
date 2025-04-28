@@ -74,7 +74,8 @@
             font-style: normal;
             font-weight: 400;
             line-height: normal;
-            &::placeholder{
+
+            &::placeholder {
               color: #CACACA;
             }
           }
@@ -115,7 +116,7 @@
 
           .dropdown {
             width: 100%;
-            
+
 
             //             border-radius: 15px;
             // border: 1px solid var(--Stroke, #EAEBED);
@@ -133,11 +134,13 @@
               font-style: normal;
               font-weight: 400;
               line-height: normal;
-              &:active{
+
+              &:active {
                 border-color: #EAEBED;
                 box-shadow: none !important;
               }
-              &:focus{
+
+              &:focus {
                 box-shadow: none;
               }
 
