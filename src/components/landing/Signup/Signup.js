@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
-import Dropdown from 'react-bootstrap/Dropdown';
+import Dropdown from "react-bootstrap/Dropdown";
 import {
   BrowserRouter as Router,
   Routes,
@@ -15,6 +15,8 @@ import "./signup.scss";
 import Environment from "../../../utils/Enviroment";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useRecoilState } from "recoil";
+import { signupEmailState } from "../atoms/context";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -24,10 +26,11 @@ const Signup = () => {
   const [error, setError] = useState("");
 
   // New states for signup
-  const [signupEmail, setSignupEmail] = useState("");
+  const [signupEmail, setSignupEmail] = useRecoilState(signupEmailState);
   const [signupPassword, setSignupPassword] = useState("");
   const [fullName, setFullName] = useState("");
   const [gender, setGender] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const [key, setKey] = useState("home");
 
@@ -46,7 +49,6 @@ const Signup = () => {
       });
       if (response.ok) {
         const data = await response.json();
-        console.log("Login successful", data?.token);
         localStorage?.setItem("token", data?.token);
 
         toast.success("Login successful!", {
@@ -57,8 +59,9 @@ const Signup = () => {
         history.push("/packages");
       } else {
         const errorData = await response.json();
+        console.log("Error Data", errorData.msg);
         toast.error(
-          errorData || "Login failed! Please check your credentials.",
+          errorData.msg || "Login failed! Please check your credentials.",
           {
             position: "top-right",
             autoClose: 3000,
@@ -80,15 +83,53 @@ const Signup = () => {
     e.preventDefault();
     setLoading(true);
 
+    // Field validation
+    if (
+      !signupEmail ||
+      !signupPassword ||
+      !confirmPassword ||
+      !fullName ||
+      !gender
+    ) {
+      if (!signupEmail) {
+        toast.error("Email is required", {
+          position: "top-right",
+          autoClose: 3000,
+        });
+      } else if (!signupPassword) {
+        toast.error("Password is required", {
+          position: "top-right",
+          autoClose: 3000,
+        });
+      } else if (!confirmPassword) {
+        toast.error("Confirm Password is required", {
+          position: "top-right",
+          autoClose: 3000,
+        });
+      } else if (!fullName) {
+        toast.error("Full Name is required", {
+          position: "top-right",
+          autoClose: 3000,
+        });
+      } else if (!gender) {
+        toast.error("Gender is required", {
+          position: "top-right",
+          autoClose: 3000,
+        });
+      }
+      setLoading(false);
+      return;
+    }
+
     // Basic validation
-    // if (signupPassword !== confirmPassword) {
-    //   toast.error("Passwords don't match!", {
-    //     position: "top-right",
-    //     autoClose: 3000,
-    //   });
-    //   setLoading(false);
-    //   return;
-    // }
+    if (signupPassword !== confirmPassword) {
+      toast.error("Passwords don't match!", {
+        position: "top-right",
+        autoClose: 3000,
+      });
+      setLoading(false);
+      return;
+    }
 
     try {
       const response = await fetch(`${Environment?.API_URL}client/signup`, {
@@ -106,15 +147,17 @@ const Signup = () => {
 
       if (response.ok) {
         const data = await response.json();
-        toast.success("Signup successful! Please login.", {
+        toast.success("Signup successful! Please Verify.", {
           position: "top-right",
           autoClose: 3000,
         });
         // Switch to login tab after successful signup
         setKey("home");
+        history.push("/authuntication");
       } else {
         const errorData = await response.json();
-        toast.error(errorData.message || "Signup failed! Please try again.", {
+        console.log(errorData);
+        toast.error(errorData.msg || "Signup failed! Please try again.", {
           position: "top-right",
           autoClose: 3000,
         });
@@ -133,7 +176,7 @@ const Signup = () => {
   return (
     <>
       <section className="signupmain">
-        <div className="parentsignup">
+        <div className="parentsignup" style={{ marginTop: "-50px" }}>
           <img
             className="img-fluid imglogo"
             src="\assets\mainlogo.svg"
@@ -171,7 +214,10 @@ const Signup = () => {
                 </div>
               </Tab>
               <Tab eventKey="profile" title="Sign Up">
-                <div className="inputsignup" style={{ fontWeight: "bolder" }}>
+                <div
+                  className="inputsignup"
+                  style={{ fontWeight: "bolder", marginBottom: "400px" }}
+                >
                   {/* <input type="text" placeholder="Full Name" />
 
                   <input type="Email" placeholder="Email address"  />
@@ -191,13 +237,6 @@ const Signup = () => {
                     value={signupEmail}
                     onChange={(e) => setSignupEmail(e.target.value)}
                   />
-                  {/* 
-                  <input
-                    type="text"
-                    placeholder="Gender"
-                    value={gender}
-                    onChange={(e) => setGender(e.target.value)}
-                  /> */}
 
                   <input
                     type="password"
@@ -206,31 +245,58 @@ const Signup = () => {
                     onChange={(e) => setSignupPassword(e.target.value)}
                   />
 
-                  <input type="password" placeholder="Confirm Password" />
+                  <input
+                    type="password"
+                    placeholder="Confirm Password"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                  />
 
                   <Dropdown>
-                    <Dropdown.Toggle variant="success" id="dropdown-basic">
-                      Gender
+                    <Dropdown.Toggle
+                      variant="success"
+                      id="dropdown-basic"
+                      style={{ color: "black" }}
+                    >
+                      {gender ? gender : "Select Gender"}
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu>
-                      <Dropdown.Item className="firstygender" href="#/action-1">Male</Dropdown.Item>
-                      <Dropdown.Item href="#/action-2">Female</Dropdown.Item>
+                      <Dropdown.Item
+                        className="firstygender"
+                        href="#/action-1"
+                        onClick={() => setGender("Male")}
+                      >
+                        Male
+                      </Dropdown.Item>
+                      <Dropdown.Item
+                        href="#/action-2"
+                        onClick={() => setGender("Female")}
+                      >
+                        Female
+                      </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
 
-
-                  {/* <button
+                  {/* 
+                  <button
                     className="signinbtn"
                     onClick={handleSignup}
                     disabled={loading}
                   >
                     {loading ? "Creating Account..." : "Sign Up"}
-                  </button> */}
-                  <Link className="anchorsignup" to="/authuntication">
-                    <button className="signinbtn">Signup</button>
-                  </Link>
+                  </button>
+                   */}
 
+                  {/* <Link className="anchorsignup" to="/authuntication"> */}
+                  <button
+                    className="signinbtn"
+                    onClick={handleSignup}
+                    disabled={loading}
+                  >
+                    {loading ? "Creating Account..." : "Sign Up"}
+                  </button>
+                  {/* </Link> */}
                 </div>
               </Tab>
             </Tabs>
