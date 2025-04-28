@@ -162,7 +162,7 @@ const Packages = () => {
                   <h3>
                     {" "}
                     <sub className="firstprice">$</sub>30{" "}
-                    <sub className="secpricesub">/month</sub>
+                    <sub className="secpricesub"> /month</sub>
                   </h3>
                   <p>billed monthly</p>
                 </div>

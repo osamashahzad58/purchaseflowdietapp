@@ -9,9 +9,11 @@
     display: flex;
     width: 100%;
     text-align: center;
+    padding: 15px;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+  
     padding-top: 145px;
 
     .imglogo {
@@ -22,6 +24,9 @@
       max-width: 556px;
       width: 100%;
       padding: 20px 26px;
+      max-height: 593px;
+      height: 100%;
+      margin-bottom: 20px;
       border-radius: 20px;
       border: 1px solid var(--Stroke, #eaebed);
       background: var(--Bcakground-color, #f9f9f9);
