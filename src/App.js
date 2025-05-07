@@ -8,6 +8,7 @@ import Packagesstart from "./components/landing/Packagestart/Packagesstart.js";
 import Navbar from "./components/landing/header/Navbar.js";
 import Authuntication from "./components/landing/authuntication/Authuntication.js";
 import { RecoilRoot } from "recoil";
+import Paymentsuccess from "./components/landing/paymentdone/Paymentsuccess.js";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route exact path="/packagesstart" component={Packagesstart} />
             <Route exact path="/navbar" component={Navbar} />
             <Route path="/authuntication" component={Authuntication} />
+            <Route path="/paymentsuccess" component={Paymentsuccess} />
           </Switch>
         </Router>
       </RecoilRoot>
