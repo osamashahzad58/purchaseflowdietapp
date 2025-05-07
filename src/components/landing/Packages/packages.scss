@@ -1,17 +1,23 @@
 .packagesmainprnt {
+  
+    height: 100vh;
+    background-color: #FFF !important;
+    // position: relative;
+    // z-index: 999;
+.packagesinner{
     background-image: url('../../../Assests/bgimg.png');
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    width: 100%;
     display: flex;
-
+padding-bottom: 100px;
     flex-direction: column;
     align-items: center;
-    // position: relative;
-    // z-index: 999;
 
     .maincntconatiner {
         max-width: 1015px;
+        width: 100%;
+        height: 626px;
         padding: 20px 26px;
         border-radius: 20px;
         border: 1px solid var(--Stroke, #EAEBED);
@@ -55,14 +61,16 @@
 
         .cardpackages {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
+            width: 100%;
 
             .cardone {
                 padding: 25px;
                 border-radius: 12px;
                 border: 1px solid var(--Stroke, #EAEBED);
                 background: var(--Color, #FFF);
+                width: 100%;
 
                 .headercardone {
                     display: flex;
@@ -207,6 +215,7 @@
         border: none !important;
         background: var(--Primary-Green, #129F07);
     }
+}
 
 
 }
@@ -219,6 +228,7 @@
         align-items: center;
         flex-wrap: wrap;
         justify-content: center;
+        width: 100%;
     }
 }
 

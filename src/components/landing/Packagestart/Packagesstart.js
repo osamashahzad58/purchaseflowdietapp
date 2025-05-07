@@ -61,7 +61,7 @@ const Packagesstart = () => {
               <Button
                 className="buynowmodal"
                 variant="primary"
-                onClick={handleShow}
+                
               >
                 Buy now
               </Button>
@@ -83,36 +83,7 @@ const Packagesstart = () => {
           </div>
         </div>
       </section>
-      <Modal
-        className="modalmainprnt"
-        show={show}
-        onHide={handleClose}
-        centered
-      >
-        <Modal.Header className="modalheadertop" closeButton>
-          <Modal.Title className="modaltitle">Success</Modal.Title>
-          {/* <h6 aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                        <path d="M13.5 13.5L9.00001 9.00001M9.00001 9.00001L4.5 4.5M9.00001 9.00001L13.5 4.5M9.00001 9.00001L4.5 13.5" stroke="#202020" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg></h6> */}
-        </Modal.Header>
-        <Modal.Body className="modalcntmain">
-          <img
-            className="img-fluid modalimg"
-            src="\assets\modalcnt.png"
-            alt=""
-          />
-          <p>Package purchased successfully</p>
-          <h3>Download & Login in the mobile app</h3>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Play store
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            App Store
-          </Button>
-        </Modal.Footer>
-      </Modal>
+     
     </>
   );
 };

@@ -46,6 +46,8 @@ const Packages = () => {
     <>
       <Navbar />
       <section className="packagesmainprnt">
+        <div className="packagesinner">
+
         <div className="maincntconatiner">
           <div className="headercntpackages">
             <h3>Packages</h3>
@@ -256,108 +258,9 @@ const Packages = () => {
                 </div>
               </div>
             </div>
-            <div className="cardone">
-              <div className="headercardone">
-                <div className="headerstylecardone">
-                  <h6>PREMIUM</h6>
-                  <h3>
-                    {" "}
-                    <sub className="firstprice">$</sub>30{" "}
-                    <sub className="secpricesub">/month</sub>
-                  </h3>
-                  <p>billed monthly</p>
-                </div>
-                <div className="cntmaincardone">
-                  <h2>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="25"
-                      height="23"
-                      viewBox="0 0 25 23"
-                      fill="none"
-                    >
-                      <path
-                        d="M8 11.33L10.83 14.16L16.5 8.5"
-                        stroke="#949494"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                    All basic Services
-                  </h2>
-                  <h2>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="25"
-                      height="23"
-                      viewBox="0 0 25 23"
-                      fill="none"
-                    >
-                      <path
-                        d="M8 11.33L10.83 14.16L16.5 8.5"
-                        stroke="#949494"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                    All basic Services
-                  </h2>
-                  <h2>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="25"
-                      height="23"
-                      viewBox="0 0 25 23"
-                      fill="none"
-                    >
-                      <path
-                        d="M8 11.33L10.83 14.16L16.5 8.5"
-                        stroke="#949494"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                    All basic Services
-                  </h2>
-                  <h2>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="25"
-                      height="23"
-                      viewBox="0 0 25 23"
-                      fill="none"
-                    >
-                      <path
-                        d="M8 11.33L10.83 14.16L16.5 8.5"
-                        stroke="#949494"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                    All basic Services
-                  </h2>
-                </div>
-                <div className="btncardonemain">
-                  <h4>
-                    30$<span>/30$</span>
-                  </h4>
-
-                  <button
-                    className="packagesstartbtn"
-                    onClick={() => handleStartNow("Premium")}
-                    disabled={loading}
-                  >
-                    {" "}
-                    Start Now{" "}
-                  </button>
-                </div>
-              </div>
-            </div>
+           
           </div>
+        </div>
         </div>
       </section>
     </>
